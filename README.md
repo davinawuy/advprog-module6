@@ -11,4 +11,8 @@ It uses the same method as before the `handle_connection()`. The difference is a
 
 The way this is achieved is by first taking the different elements and saving them as different string variables. Using String formatting it will format the string and the code should send it back to the stream as bytes and allow the browser to render the data.
 
+<h2> 3rd Reflection </h2>
 
+![image info](Images/Reflection3img.png)
+
+Basically the goal to validating is to check the status line. In this line there is a section called the URI which should be the second parameter of the status line in a request. It contains the content of the URL after the infor regarding the destination of the request. We will apply the URI to differentaite the differet types of requests that is being sent. Here we are checkign ot `GET / HTTP/1.1` if it is that we send the hello.html anything else would be a 404 not found. So we are actually more effective in checkign and creating the filename since we only need to know whether it is a valid request or not instead of checking each request.
