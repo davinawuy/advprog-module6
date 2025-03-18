@@ -20,3 +20,12 @@ Basically the goal to validating is to check the status line. In this line there
 <h2>Reflection 4</h2>
 
 So after running and observing the code I saw that the default redirect to the hello.html was very slow. This is because the code was calling a sleep which was taking the resources and therefore, it placed my original request in the queue waiting for the sleep to finish. This causes a delay or causes the loading to be slow since the program will wait for the sleep to finish before allowing the other requests to finish.
+
+<h2> Reflection 5 </h2>
+
+Here using a multithread into the application actually improved the performance of the overall application since using this code and library actually created workers. What they help achieve is the distribution of requests, basically by allowing new workers we create many more slots for a request to take and thus we do not need to wait for the sleep to finish.
+
+The process to allow this to work is first creating a passing channel for each thread. Then the threadpool should create a vector of `workers` who will each create a thread. Each worker can only ever work on one request since after it gets a request it will lock until the job is done.
+
+Each input needs to be a function that will be put into a box and given to the worker. In this code there are 4 workers and whenever we get a stream from the TCPListener it will execute the ThreadPool and the handle_connection.
+
