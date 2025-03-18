@@ -16,3 +16,7 @@ The way this is achieved is by first taking the different elements and saving th
 ![image info](Images/Reflection3img.png)
 
 Basically the goal to validating is to check the status line. In this line there is a section called the URI which should be the second parameter of the status line in a request. It contains the content of the URL after the infor regarding the destination of the request. We will apply the URI to differentaite the differet types of requests that is being sent. Here we are checkign ot `GET / HTTP/1.1` if it is that we send the hello.html anything else would be a 404 not found. So we are actually more effective in checkign and creating the filename since we only need to know whether it is a valid request or not instead of checking each request.
+
+<h2>Reflection 4</h2>
+
+So after running and observing the code I saw that the default redirect to the hello.html was very slow. This is because the code was calling a sleep which was taking the resources and therefore, it placed my original request in the queue waiting for the sleep to finish. This causes a delay or causes the loading to be slow since the program will wait for the sleep to finish before allowing the other requests to finish.
