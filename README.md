@@ -29,3 +29,6 @@ The process to allow this to work is first creating a passing channel for each t
 
 Each input needs to be a function that will be put into a box and given to the worker. In this code there are 4 workers and whenever we get a stream from the TCPListener it will execute the ThreadPool and the handle_connection.
 
+<h2> Bonus Reflection </h2>
+
+So instead of using the `new()` function I changed it to use the `build()` function. The main reason for doing so was to help handle more complext tasks. While both functions achieve the same thing build helps direct to more expanded library which in this case allows us to create multi-threaded programs. In doing so we allow the function to properly direct itself and create a more complex and configured setup.
